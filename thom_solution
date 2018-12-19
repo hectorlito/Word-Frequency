@@ -1,0 +1,24 @@
+const findWordFrequencies = str => {
+  const wordArray = str.split(' ');
+  const words = {};
+  for (let i=0; i < wordArray.length; i++) {
+    words[wordArray[i].toLowerCase()] =	(words[wordArray[i]] || 0) + 1;
+  }
+  return words;
+}
+
+const findHighestFrequency = obj => {
+  let value = -Infinity;
+  let word = null;
+  for (let key in obj) {
+    if (obj[key] > value) {
+      value = obj[key];
+      word = key;
+    }
+  }
+  return { [word] : value } 
+}
+
+const freqs = findWordFrequencies('The world is all that is the case');
+console.log(freqs);
+console.log(findHighestFrequency(freqs));
